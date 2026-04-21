@@ -35,12 +35,18 @@
             <div class="fact-grid" id="fact-grid"></div>
             <div class="hero-actions">
               <a class="button button-primary" id="register-link" href="#">Register</a>
-              <a class="button button-secondary" id="repo-link" href="#">Workshop Repo</a>
+              <span class="button button-secondary button-disabled" id="repo-link">Workshop Repo</span>
             </div>
           </div>
-          <aside class="hero-figure" aria-labelledby="figure-title">
+          <aside class="hero-figure" aria-label="Workshop flyer">
             <div class="figure-card">
-              <div class="figure-art" aria-hidden="true">
+              <div class="figure-art" id="figure-art" aria-hidden="true">
+                <img
+                  class="figure-image is-hidden"
+                  id="figure-image"
+                  src=""
+                  alt="ASU workshop flyer for Geospatial AI Foundation Models"
+                />
                 <div class="orbit orbit-one"></div>
                 <div class="orbit orbit-two"></div>
                 <div class="node-row">
@@ -58,11 +64,6 @@
                   <span class="node"></span>
                   <span class="node"></span>
                 </div>
-              </div>
-              <div class="figure-copy">
-                <p class="figure-label">Figure Placeholder</p>
-                <h2 id="figure-title">GeoFM workflow diagram</h2>
-                <p id="figure-description"></p>
               </div>
             </div>
           </aside>
@@ -97,19 +98,26 @@
             <p class="section-kicker">Research context</p>
             <h2>Related work from the team</h2>
           </div>
-          <div class="paper-grid" id="paper-grid"></div>
+          <ol class="reference-list" id="paper-grid"></ol>
         </section>
 
         <section class="section callout-section" id="register">
+          <div class="section-heading">
+            <p class="section-kicker">Join us</p>
+            <h2>Registration and event details</h2>
+          </div>
           <div class="registration-card">
             <div>
-              <p class="section-kicker">Join us</p>
-              <h2>Registration and event details</h2>
               <p id="registration-copy"></p>
             </div>
             <div class="registration-actions">
-              <a class="button button-primary" id="registration-cta" href="#">Secure your spot</a>
-              <a class="button button-secondary" id="calendar-link" href="#overview">View workshop details</a>
+              <a class="button button-primary" id="registration-cta" href="#">Register</a>
+              <a
+                class="button button-secondary"
+                id="contact-link"
+                href="mailto:wenwen@asu.edu?subject=GeoFM%20Workshop%20Inquiry"
+                >Contact organizers</a
+              >
             </div>
           </div>
         </section>
@@ -123,14 +131,7 @@
             <article class="material-card">
               <h3>GitHub repository</h3>
               <p id="repo-copy"></p>
-              <a class="text-link" id="repo-material-link" href="#">Open repository</a>
-            </article>
-            <article class="material-card">
-              <h3>Suggested page updates</h3>
-              <p>
-                Replace the placeholder instructor names, add photo paths in
-                <code>docs/content.js</code>, and update the registration URL once the final form is live.
-              </p>
+              <span class="text-link text-disabled" id="repo-material-link">Open repository</span>
             </article>
           </div>
         </section>
@@ -142,7 +143,14 @@
           <img src="./assets/ASU-logo.png" alt="Arizona State University logo" />
         </div>
         <p>
-          Hosted by the ASU Spatial Analysis Research Center. Funded by NASA.
+          Hosted By ASU Team Contributors to
+          <a
+            class="text-link footer-link"
+            href="https://github.com/NASA-IMPACT/Prithvi-EO-2.0"
+            target="_blank"
+            rel="noreferrer"
+            >Prithvi-EO-2.0</a
+          >. Funded by NASA.
         </p>
       </footer>
     </div>

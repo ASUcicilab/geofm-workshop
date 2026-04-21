@@ -4,12 +4,12 @@ const workshop = {
   title: "ASU Workshop on Geospatial AI Foundation Models",
   summary:
     "An overview and hands-on introduction to geospatial foundation models for Earth observation, with a focus on practical research workflows and reusable workshop materials.",
-  figureDescription:
-    "Use this slot for a standalone workflow figure adapted from the flyer, such as the Earth observation to GeoFM to downstream tasks pipeline, without embedding the full poster.",
+  figureImage: "./assets/geofm-figure.png",
   date: "May 12, 2026",
   time: "12:00 PM to 3:00 PM",
   location: "ASU Campus, COOR Hall 5505",
-  registrationUrl: "https://example.com/register",
+  registrationUrl:
+    "https://docs.google.com/forms/d/e/1FAIpQLSfkcQT_GJgQQjN0l3MjEv0dlKvx-U5nkDsGSxmA7dDzWdUbuA/viewform",
   repositoryUrl: "https://github.com/your-org/geofm-workshop",
   overview: [
     "Geospatial AI foundation models (GeoFM) are rapidly reshaping how we analyze and understand Earth observation data. Award-winning models such as NASA-IBM's Prithvi-EO-2.0 learn from global-scale data to capture rich geospatial knowledge and enable a wide range of downstream applications, including flood and landslide mapping, wildfire fuel characterization, change detection, and long-term land use and land cover analysis.",
@@ -23,42 +23,39 @@ const workshop = {
   ],
   instructors: [
     {
-      name: "Instructor One",
+      name: "Prof. Wenwen Li",
       role: "Lead instructor, ASU",
       bio:
-        "Add a short bio here describing research area, lab affiliation, and why this instructor is relevant to the workshop. This card is already wired to show a portrait once you add a local image path.",
-      photo: "",
+        "Wenwen Li received the Ph.D. degree in Earth system and geoinformation science from George Mason University, Fairfax, VA, USA, in 2019. She is currently a Professor of geographic information science with the School of Geographical Sciences and Urban Planning, Arizona State University, Tempe, AZ, USA, where she also directs the Spatial Analysis Research Center and the Cyberinfrastructure and Computational Intelligence Lab. Her research interests include cyberinfrastructure, geospatial big data, geospatial artificial intelligence (GeoAI), and their applications in data-intensive environmental and social sciences.",
+      photo: "./assets/wenwen.jpeg",
       links: [
-        { label: "Profile", url: "https://example.com/profile" }
+        { label: "Profile", url: "https://geoai4earth.github.io/" }
       ]
     },
     {
-      name: "Instructor Two",
+      name: "Dr. Hyunho Lee",
       role: "Co-instructor, ASU",
       bio:
-        "Add a second short bio here. The layout supports two instructors now and will scale if you add more objects to the array below.",
-      photo: "",
+        "Hyunho Lee is a GeoAI (Geospatial Artificial Intelligence) expert specializing in satellite-based flood mapping. He holds a PhD in Geographic Information Science from Arizona State University (ASU). His research focuses on deep learning for geospatial data, particularly satellite imagery, with an emphasis on model interpretability for intelligent environmental mapping.",
+      photo: "./assets/hyunho.png",
       links: [
-        { label: "Profile", url: "https://example.com/profile" }
+        {
+          label: "Profile",
+          url: "https://hyunholee26.github.io"
+        }
       ]
     }
   ],
   papers: [
     {
-      title: "Add your first workshop-related paper here",
-      authors: "Author list",
-      venue: "Conference or journal",
-      description:
-        "Summarize why this paper matters for workshop participants and what part of the workshop it connects to.",
-      url: "https://example.com/paper-1"
+      citation:
+        "Szwarcman, D., Roy, S., Fraccaro, P., Gislason, O. E., Blumenstiel, B., Ghosal, R., ... & Moreno, J. B. (2025). Prithvi-EO-2.0: A versatile multi-temporal foundation model for Earth observation applications. IEEE Transactions on Geoscience and Remote Sensing.",
+      url: "https://github.com/NASA-IMPACT/Prithvi-EO-2.0"
     },
     {
-      title: "Add another related paper",
-      authors: "Author list",
-      venue: "Conference or journal",
-      description:
-        "Use this section to link the workshop to your research output, datasets, or benchmark work.",
-      url: "https://example.com/paper-2"
+      citation:
+        "Li, W., Wang, S., Lee, H., Lu, C., Roy, S., Ramachandran, R., & Hsu, C. Y. (2025). Landslide Hazard Mapping with Geospatial Foundation Models: Geographical Generalizability, Data Scarcity, and Band Adaptability. arXiv preprint arXiv:2511.04474.",
+      url: "https://arxiv.org/abs/2511.04474"
     }
   ]
 };
@@ -109,7 +106,22 @@ function initialsFromName(name) {
 function renderOverview() {
   setText("workshop-title", workshop.title);
   setText("hero-summary", workshop.summary);
-  setText("figure-description", workshop.figureDescription);
+
+  const figureArt = document.getElementById("figure-art");
+  const figureImage = document.getElementById("figure-image");
+  if (figureArt && figureImage && workshop.figureImage) {
+    figureImage.src = workshop.figureImage;
+    figureImage.addEventListener("load", () => {
+      figureImage.classList.remove("is-hidden");
+      figureArt.classList.add("has-image");
+      figureArt.setAttribute("aria-hidden", "false");
+    });
+    figureImage.addEventListener("error", () => {
+      figureImage.classList.add("is-hidden");
+      figureArt.classList.remove("has-image");
+      figureArt.setAttribute("aria-hidden", "true");
+    });
+  }
 
   const factGrid = document.getElementById("fact-grid");
   [
@@ -153,9 +165,10 @@ function renderInstructors() {
       media.setAttribute("aria-hidden", "true");
       media.textContent = initialsFromName(instructor.name || "I");
     }
+    media.classList.add("instructor-media");
 
-    const meta = document.createElement("div");
-    meta.className = "instructor-meta";
+    const header = document.createElement("div");
+    header.className = "instructor-header";
 
     const name = document.createElement("h3");
     name.textContent = instructor.name;
@@ -164,10 +177,15 @@ function renderInstructors() {
     role.className = "instructor-role";
     role.textContent = instructor.role;
 
+    header.append(name, role);
+
+    const body = document.createElement("div");
+    body.className = "instructor-body";
+
     const bio = document.createElement("p");
     bio.textContent = instructor.bio;
 
-    meta.append(name, role, bio);
+    body.appendChild(bio);
 
     if (Array.isArray(instructor.links) && instructor.links.length > 0) {
       const linkRow = document.createElement("div");
@@ -175,10 +193,10 @@ function renderInstructors() {
       instructor.links.forEach((item) => {
         linkRow.appendChild(createTextLink(item.label, item.url));
       });
-      meta.appendChild(linkRow);
+      body.appendChild(linkRow);
     }
 
-    card.append(media, meta);
+    card.append(media, header, body);
     container.appendChild(card);
   });
 }
@@ -187,29 +205,21 @@ function renderPapers() {
   const container = document.getElementById("paper-grid");
 
   workshop.papers.forEach((paper) => {
-    const card = document.createElement("article");
-    card.className = "paper-card";
-
-    const title = document.createElement("h3");
-    title.textContent = paper.title;
-
-    const meta = document.createElement("p");
-    meta.className = "paper-meta";
-    meta.textContent = `${paper.authors} • ${paper.venue}`;
-
-    const description = document.createElement("p");
-    description.textContent = paper.description;
-
-    card.append(title, meta, description);
+    const item = document.createElement("li");
+    item.className = "reference-item";
+    item.textContent = paper.citation;
 
     if (paper.url) {
-      const links = document.createElement("div");
-      links.className = "paper-links";
-      links.appendChild(createTextLink("Read paper", paper.url));
-      card.appendChild(links);
+      item.appendChild(document.createTextNode(" "));
+      const link = document.createElement("a");
+      link.href = paper.url;
+      link.target = "_blank";
+      link.rel = "noreferrer";
+      link.textContent = "[link]";
+      item.appendChild(link);
     }
 
-    container.appendChild(card);
+    container.appendChild(item);
   });
 }
 
@@ -222,21 +232,13 @@ function renderLinks() {
     link.rel = "noreferrer";
   });
 
-  const repoLinks = ["repo-link", "repo-material-link"];
-  repoLinks.forEach((id) => {
-    const link = document.getElementById(id);
-    link.href = workshop.repositoryUrl;
-    link.target = "_blank";
-    link.rel = "noreferrer";
-  });
-
   setText(
     "registration-copy",
-    `The current workshop plan lists ${workshop.date} from ${workshop.time} at ${workshop.location}. Update the registration URL in docs/content.js when the final form is available.`
+    `The current workshop plan lists ${workshop.date} from ${workshop.time} at ${workshop.location}.`
   );
   setText(
     "repo-copy",
-    "Use the GitHub repository for notebooks, setup notes, slide references, and any datasets or utilities you want participants to access before or after the workshop."
+    "Workshop notebooks, example code, and supporting materials will be shared through the GitHub repository."
   );
 }
 
