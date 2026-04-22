@@ -24,7 +24,7 @@ const workshop = {
   instructors: [
     {
       name: "Prof. Wenwen Li",
-      role: "Lead instructor, ASU",
+      role: "Co-instructor, ASU",
       bio:
         "Wenwen Li received the Ph.D. degree in Earth system and geoinformation science from George Mason University, Fairfax, VA, USA, in 2019. She is currently a Professor of geographic information science with the School of Geographical Sciences and Urban Planning, Arizona State University, Tempe, AZ, USA, where she also directs the Spatial Analysis Research Center and the Cyberinfrastructure and Computational Intelligence Lab. Her research interests include cyberinfrastructure, geospatial big data, geospatial artificial intelligence (GeoAI), and their applications in data-intensive environmental and social sciences.",
       photo: "./assets/wenwen.jpeg",
@@ -42,6 +42,30 @@ const workshop = {
         {
           label: "Profile",
           url: "https://hyunholee26.github.io"
+        }
+      ]
+    },
+    {
+      name: "Sizhe Wang",
+      role: "Hands-on support staff",
+      bio: "Sizhe Wang received the master’s degree in geography from Arizona State University, Tempe, AZ, USA, in 2016, where he is currently pursuing the Ph.D. degree in computer science. His research focuses on geospatial artificial intelligence (GeoAI), machine learning, and geospatial data analysis, with applications in environmental monitoring, terrain classification, and permafrost feature detection. He is also exploring the integration of knowledge graphs and spatial data fusion to enhance AI models in various geospatial contexts.",
+      photo: "./assets/Wang.jpeg",
+      links: [
+        {
+          label: "Profile",
+          url: "https://scholar.google.com/citations?user=bucEAU0AAAAJ"
+        }
+      ]
+    },
+    {
+      name: "Chia-Yu Hsu",
+      role: "Hands-on support staff",
+      bio: "Chia-Yu Hsu received the master’s degree in computer science from Arizona State University, Tempe, AZ, USA, in 2018. He is currently a Research Professional at Arizona State University. His research interests focus on applying machine learning and artificial intelligence techniques to address geographical big data challenges. In recent years, his work has emphasized geospatial artificial intelligence (GeoAI), including developing foundation models for Earth observation, advancing Arctic science with AI, and enhancing explainability in deep learning for geospatial applications.",
+      photo: "./assets/Hsu.jpeg",
+      links: [
+        {
+          label: "Profile",
+          url: "https://scholar.google.com/citations?user=AMLwVyMAAAAJ"
         }
       ]
     }
@@ -182,10 +206,11 @@ function renderInstructors() {
     const body = document.createElement("div");
     body.className = "instructor-body";
 
-    const bio = document.createElement("p");
-    bio.textContent = instructor.bio;
-
-    body.appendChild(bio);
+    if (instructor.bio) {
+      const bio = document.createElement("p");
+      bio.textContent = instructor.bio;
+      body.appendChild(bio);
+    }
 
     if (Array.isArray(instructor.links) && instructor.links.length > 0) {
       const linkRow = document.createElement("div");
@@ -234,7 +259,7 @@ function renderLinks() {
 
   setText(
     "registration-copy",
-    `The current workshop plan lists ${workshop.date} from ${workshop.time} at ${workshop.location}.`
+    "This in-person workshop will take place on May 12, 2026, from 12:00 PM to 3:00 PM at COOR Hall, Room 5505, on the ASU Tempe campus. Lunch will be provided, and seats are limited. Register by May 8 to secure a spot!"
   );
   setText(
     "repo-copy",
