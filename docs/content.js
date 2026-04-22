@@ -25,8 +25,7 @@ const workshop = {
     {
       name: "Prof. Wenwen Li",
       role: "Co-instructor, ASU",
-      bio:
-        "Wenwen Li received the Ph.D. degree in Earth system and geoinformation science from George Mason University, Fairfax, VA, USA, in 2019. She is currently a Professor of geographic information science with the School of Geographical Sciences and Urban Planning, Arizona State University, Tempe, AZ, USA, where she also directs the Spatial Analysis Research Center and the Cyberinfrastructure and Computational Intelligence Lab. Her research interests include cyberinfrastructure, geospatial big data, geospatial artificial intelligence (GeoAI), and their applications in data-intensive environmental and social sciences.",
+      bio: "Wenwen Li is a Professor of geographic information science at ASU, where she also directs the Spatial Analysis Research Center. Her research interests include cyberinfrastructure, geospatial big data, GeoAI, and their applications in data-intensive environmental and social sciences.",
       photo: "./assets/wenwen.jpeg",
       links: [
         { label: "Profile", url: "https://geoai4earth.github.io/" }
@@ -35,8 +34,7 @@ const workshop = {
     {
       name: "Dr. Hyunho Lee",
       role: "Co-instructor, ASU",
-      bio:
-        "Hyunho Lee is a GeoAI (Geospatial Artificial Intelligence) expert specializing in satellite-based flood mapping. He holds a PhD in Geographic Information Science from Arizona State University (ASU). His research focuses on deep learning for geospatial data, particularly satellite imagery, with an emphasis on model interpretability for intelligent environmental mapping.",
+      bio: "Hyunho Lee is a GeoAI expert specializing in satellite-based flood mapping. He holds a PhD in Geographic Information Science from ASU. His research focuses on deep learning for geospatial data, particularly satellite imagery, with an emphasis on model interpretability for intelligent environmental mapping.",
       photo: "./assets/hyunho.png",
       links: [
         {
@@ -48,7 +46,7 @@ const workshop = {
     {
       name: "Sizhe Wang",
       role: "Hands-on support staff",
-      bio: "Sizhe Wang received the master’s degree in geography from Arizona State University, Tempe, AZ, USA, in 2016, where he is currently pursuing the Ph.D. degree in computer science. His research focuses on geospatial artificial intelligence (GeoAI), machine learning, and geospatial data analysis, with applications in environmental monitoring, terrain classification, and permafrost feature detection. He is also exploring the integration of knowledge graphs and spatial data fusion to enhance AI models in various geospatial contexts.",
+      bio: "Sizhe Wang is a Ph.D. student in computer science at ASU. His research focuses on GeoAI, machine learning, and geospatial data analysis, with applications in environmental monitoring, terrain classification, and permafrost feature detection.",    
       photo: "./assets/Wang.jpeg",
       links: [
         {
@@ -60,7 +58,7 @@ const workshop = {
     {
       name: "Chia-Yu Hsu",
       role: "Hands-on support staff",
-      bio: "Chia-Yu Hsu received the master’s degree in computer science from Arizona State University, Tempe, AZ, USA, in 2018. He is currently a Research Professional at Arizona State University. His research interests focus on applying machine learning and artificial intelligence techniques to address geographical big data challenges. In recent years, his work has emphasized geospatial artificial intelligence (GeoAI), including developing foundation models for Earth observation, advancing Arctic science with AI, and enhancing explainability in deep learning for geospatial applications.",
+      bio: "Chia-Yu Hsu is a Research Professional at ASU. His research interests focus on applying machine learning and geo AI techniques to address geographical big data challenges, including developing foundation models for Earth observation and enhancing explainability in deep learning.",
       photo: "./assets/Hsu.jpeg",
       links: [
         {
