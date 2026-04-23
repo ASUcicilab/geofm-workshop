@@ -1,0 +1,18 @@
+model:
+  model_args:
+    backbone_pretrained: true
+    backbone: prithvi_eo_v2_300
+    backbone_bands: ["BLUE", "GREEN", "RED", "NIR_NARROW", "SWIR_1", "SWIR_2"]
+    backbone_num_frames: 1
+      
+    necks:
+      - name: SelectIndices
+        indices: [5, 11, 17, 23]
+      - name: ReshapeTokensToImage
+        effective_time_dim: 1
+      - name: LearnedInterpolateToPyramidal
+      
+    decoder: UNetDecoder
+    decoder_channels: [512, 256, 128, 64]
+      
+    num_classes: 2
