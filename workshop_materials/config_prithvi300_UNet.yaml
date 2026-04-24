@@ -4,7 +4,8 @@ model:
     backbone: prithvi_eo_v2_300
     backbone_bands: ["BLUE", "GREEN", "RED", "NIR_NARROW", "SWIR_1", "SWIR_2"]
     backbone_num_frames: 1
-      
+    backbone_ckpt_path: /data/shared/prithvi_workshop/Prithvi_EO_V2_300M.pt
+    
     necks:
       - name: SelectIndices
         indices: [5, 11, 17, 23]
