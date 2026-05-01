@@ -10,7 +10,7 @@ const workshop = {
   location: "ASU Campus, COOR Hall 5505",
   registrationUrl:
     "https://docs.google.com/forms/d/e/1FAIpQLSfkcQT_GJgQQjN0l3MjEv0dlKvx-U5nkDsGSxmA7dDzWdUbuA/viewform",
-  repositoryUrl: "https://github.com/your-org/geofm-workshop",
+  repositoryUrl: "https://github.com/ASUcicilab/geofm-workshop",
   overview: [
     "Geospatial AI foundation models (GeoFM) are rapidly reshaping how we analyze and understand Earth observation data. Award-winning models such as NASA-IBM's Prithvi-EO-2.0 learn from global-scale data to capture rich geospatial knowledge and enable a wide range of downstream applications, including flood and landslide mapping, wildfire fuel characterization, change detection, and long-term land use and land cover analysis.",
     "This workshop is designed as a concise, research-oriented introduction for ASU faculty, students, researchers, and local participants who want both conceptual grounding and a practical path into GeoFM workflows."
@@ -251,6 +251,14 @@ function renderLinks() {
   registerLinks.forEach((id) => {
     const link = document.getElementById(id);
     link.href = workshop.registrationUrl;
+    link.target = "_blank";
+    link.rel = "noreferrer";
+  });
+
+  const repositoryLinks = ["repo-link", "repo-material-link"];
+  repositoryLinks.forEach((id) => {
+    const link = document.getElementById(id);
+    link.href = workshop.repositoryUrl;
     link.target = "_blank";
     link.rel = "noreferrer";
   });
