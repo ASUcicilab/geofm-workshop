@@ -66,6 +66,18 @@ const workshop = {
           url: "https://scholar.google.com/citations?user=AMLwVyMAAAAJ"
         }
       ]
+    },
+    {
+      name: "Chenyan Lu",
+      role: "Technical Support Staff",
+      bio: "Chenyan Lu is a Ph.D. student in Geographic Information Science at ASU. Her research focuses on GeoAI, foundation model and remote sensing data processing, as well as how to apply these methods to earth observation and disaster management.",
+      photo: "./assets/chenyan.jpg",
+      links: [
+        {
+          label: "Profile",
+          url: "https://www.linkedin.com/in/chenyan-lu/"
+        }
+      ]
     }
   ],
   papers: [
@@ -78,7 +90,42 @@ const workshop = {
       citation:
         "Li, W., Wang, S., Lee, H., Lu, C., Roy, S., Ramachandran, R., & Hsu, C. Y. (2025). Landslide Hazard Mapping with Geospatial Foundation Models: Geographical Generalizability, Data Scarcity, and Band Adaptability. arXiv preprint arXiv:2511.04474.",
       url: "https://arxiv.org/abs/2511.04474"
-    }
+    },
+    {
+      citation:
+        "Orynbaikyzy, A., Albrecht, F., Yao, W., Motagh, M., Wang, W., Martinis, S., & Plank, S. (2025). Landslide mapping with deep learning: the role of pre-/post-event SAR features and multi-sensor data fusion. GIScience & Remote Sensing, 62(1), 2502214.",
+      url: "https://www.tandfonline.com/doi/full/10.1080/15481603.2025.2502214"
+    },
+    {
+      citationPrefix: "",
+      linkLabel: "Prithvi-EO-2.0 Hugging Face",
+      url: "https://huggingface.co/ibm-nasa-geospatial",
+      citationSuffix: ""
+    },
+    {
+      citationPrefix: "",
+      linkLabel: "TerraTorch GitHub",
+      url: "https://github.com/terrastackai/terratorch",
+      citationSuffix: ""
+    },
+    {
+      citationPrefix: "",
+      linkLabel: "Getting Started with PyTorch",
+      url: "https://docs.pytorch.org/tutorials/beginner/basics/intro.html",
+      citationSuffix: ""
+    },
+    {
+      citationPrefix: "",
+      linkLabel: "Sentinel-2",
+      url: "https://sentiwiki.copernicus.eu/web/sentinel-2",
+      citationSuffix: ""
+    },
+    {
+      citationPrefix: "",
+      linkLabel: "Landslide Reference Dataset",
+      url: "https://zenodo.org/records/17007637",
+      citationSuffix: ""
+    },
   ]
 };
 
@@ -230,9 +277,25 @@ function renderPapers() {
   workshop.papers.forEach((paper) => {
     const item = document.createElement("li");
     item.className = "reference-item";
-    item.textContent = paper.citation;
 
-    if (paper.url) {
+    if (paper.linkLabel && paper.url) {
+      if (paper.citationPrefix) {
+        item.appendChild(document.createTextNode(paper.citationPrefix));
+      }
+      const inlineLink = document.createElement("a");
+      inlineLink.href = paper.url;
+      inlineLink.target = "_blank";
+      inlineLink.rel = "noreferrer";
+      inlineLink.textContent = paper.linkLabel;
+      item.appendChild(inlineLink);
+      if (paper.citationSuffix) {
+        item.appendChild(document.createTextNode(paper.citationSuffix));
+      }
+    } else {
+      item.textContent = paper.citation;
+    }
+
+    if (paper.url && paper.citation) {
       item.appendChild(document.createTextNode(" "));
       const link = document.createElement("a");
       link.href = paper.url;
