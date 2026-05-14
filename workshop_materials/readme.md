@@ -110,7 +110,7 @@ DATA_DIR = "/path/to/your/data"
 
 ### **5.3 Model Configuration Files**
 
-If you are using a pretrained model, open the configuration file **config_prithvi300_UNet.yaml** and delete the line containing: backbone_ckpt_path.
+If you are using a pretrained model, open the configuration file **config_prithvi300_UNet.yaml** and delete the line containing: **backbone_ckpt_path**.
 
 
 ### **5.4 GPU / Device Configuration**
