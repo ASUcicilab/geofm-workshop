@@ -1,6 +1,6 @@
 # Environment Setup Guide for Hands-On Jupyter Notebook
 
-### **Workshop:** GeoFM Workshop — Hands-On Session
+### **Workshop:** Prithvi-EO-2.0 Workshop (Hands-On Session)
 
 ### **Repository:** [ASUcicilab/geofm-workshop](https://github.com/ASUcicilab/geofm-workshop)
 
