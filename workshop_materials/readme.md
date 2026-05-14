@@ -130,14 +130,13 @@ print(f"Using device: {device}")
 
 | Task | Command |
 | --- | --- |
-| **Clone repository** | `git clone [https://github.com/ASUcicilab/geofm-workshop.git](https://github.com/ASUcicilab/geofm-workshop.git)` |
+| **Clone repository** | `git clone https://github.com/ASUcicilab/geofm-workshop.git` |
 | **Create env from yml** | `conda env create -f environment.yml` |
 | **Activate environment** | `conda activate geofm-env` |
 | **Launch Jupyter** | `jupyter notebook` |
 
 ---
 
-**Last updated:** May 2026
----
+Last updated: May 2026
 ```
 
