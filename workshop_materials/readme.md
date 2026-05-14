@@ -20,9 +20,7 @@ Before you begin, make sure the following tools are installed on your system:
 > ```bash
 > conda --version
 > 
-> ```
-> 
-> 
+> ``` 
 
 ---
 
@@ -140,6 +138,6 @@ print(f"Using device: {device}")
 ---
 
 **Last updated:** May 2026
-
+---
 ```
 
