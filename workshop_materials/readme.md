@@ -87,12 +87,18 @@ pip install notebook
 
 ---
 
-## ✏️ Step 5: Code Modifications Required
 
-Before running the notebooks, update the some cells. Look for comments like `# TODO` or `# CHANGE THIS`.
+## ✏️ Step 5: Required Data & Code Modifications
+
+Before running the cells in the notebook, you must download the necessary dataset and configure your paths. Look for comments like `# TODO` or `# CHANGE THIS`.
 
 
-### **5.1 Data Paths**
+### **5.1 Download the Landslide Reference Dataset**
+
+The data required for this workshop is hosted on Zenodo.
+- Download link: [https://zenodo.org/records/17007637](https://zenodo.org/records/17007637)
+
+### **5.2 Data Paths**
 
 Update local file paths to match your directory structure:
 
@@ -102,7 +108,7 @@ DATA_DIR = "/path/to/your/data"
 
 ```
 
-### **5.2 Model Configuration Files**
+### **5.3 Model Configuration Files**
 
 If a pretrained model is required, point the notebook to the local file:
 
