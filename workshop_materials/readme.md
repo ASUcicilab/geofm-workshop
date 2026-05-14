@@ -89,7 +89,7 @@ pip install notebook
 
 ## ✏️ Step 5: Code Modifications Required
 
-Before running the notebooks, update the configuration cells. Look for comments like `# TODO` or `# CHANGE THIS`.
+Before running the notebooks, update the some cells. Look for comments like `# TODO` or `# CHANGE THIS`.
 
 
 ### **5.1 Data Paths**
