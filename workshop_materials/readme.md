@@ -50,7 +50,7 @@ conda env create -f environment.yml
 
 ```
 
-*This creates an environment (usually named `geofm-env`) and installs all dependencies automatically.*
+*This creates an environment named `geofm-env` and installs all dependencies automatically.*
 
 ---
 
