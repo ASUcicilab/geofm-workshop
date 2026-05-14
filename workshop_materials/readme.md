@@ -33,7 +33,7 @@ Download the workshop materials by cloning the official repository:
 git clone https://github.com/ASUcicilab/geofm-workshop.git
 
 # Enter the directory
-cd geofm-workshop/worrshop_materials
+cd geofm-workshop/workshop_materials
 
 ```
 
