@@ -110,14 +110,10 @@ DATA_DIR = "/path/to/your/data"
 
 ### **5.3 Model Configuration Files**
 
-If a pretrained model is required, point the notebook to the local file:
+If you are using a pretrained model, open the configuration file **config_prithvi300_UNet.yaml** and delete the line containing: backbone_ckpt_path.
 
-```python
-CHECKPOINT_PATH = "/path/to/checkpoint.pth"
 
-```
-
-### **5.3 GPU / Device Configuration**
+### **5.4 GPU / Device Configuration**
 
 Verify your hardware detection:
 
