@@ -78,7 +78,7 @@ jupyter notebook
 
 ```
 
-* **Action:** A browser window will open. Navigate to the `notebooks/` folder and open the first hands-on notebook (e.g., `prithvi_workshop_final.ipynb`).
+* **Action:** A browser window will open. Navigate to the current folder and open the hands-on notebook (e.g., `prithvi_workshop_final.ipynb`).
 * **Troubleshooting:** If Jupyter is not installed, run:
 ```bash
 pip install notebook
