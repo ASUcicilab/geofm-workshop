@@ -71,7 +71,7 @@ conda activate geofm-env
 
 ## 📓 Step 4: Launch Jupyter Notebook
 
-With the environment activated and inside the `geofm-workshop` folder, start Jupyter:
+With the environment activated and inside the `geofm-workshop/workshop_materials` folder, start Jupyter:
 
 ```bash
 jupyter notebook
@@ -88,9 +88,9 @@ pip install notebook
 ---
 
 
-## ✏️ Step 5: Required Data & Code Modifications
+## ✏️ Step 5: Download Data, Download Checkpoint, And Configure Paths
 
-Before running the cells in the notebook, you must download the necessary dataset and configure your paths. Look for comments like `# TODO` or `# CHANGE THIS`.
+Before running the model-building and training cells, download both the landslide dataset and the Prithvi checkpoint. Then update the path setup cell near the top of the notebook.
 
 
 ### **5.1 Download the Landslide Reference Dataset**
@@ -98,20 +98,57 @@ Before running the cells in the notebook, you must download the necessary datase
 The data required for this workshop is hosted on Zenodo.
 - Download link: [https://zenodo.org/records/17007637](https://zenodo.org/records/17007637)
 
-### **5.2 Data Paths**
+After downloading, extract the HDF5 split files into a local folder. The notebook default expects:
+
+```text
+workshop_materials/data/reference_data/
+```
+
+This folder should contain files such as:
+
+```text
+train_n3_s1s2.h5
+val_n3_s1s2.h5
+testind_n3_s1s2.h5
+```
+
+### **5.2 Download the Prithvi Checkpoint**
+
+The Prithvi-EO-2.0 300M checkpoint is hosted on Hugging Face.
+- Model files page: [https://huggingface.co/ibm-nasa-geospatial/Prithvi-EO-2.0-300M/tree/main](https://huggingface.co/ibm-nasa-geospatial/Prithvi-EO-2.0-300M/tree/main)
+- Direct checkpoint download: [Prithvi_EO_V2_300M.pt](https://huggingface.co/ibm-nasa-geospatial/Prithvi-EO-2.0-300M/resolve/main/Prithvi_EO_V2_300M.pt?download=true)
+
+Save the checkpoint as:
+
+```text
+workshop_materials/checkpoints/Prithvi_EO_V2_300M.pt
+```
+
+If you are already inside `geofm-workshop/workshop_materials`, you can download it with:
+
+```bash
+mkdir -p checkpoints
+curl -L -o checkpoints/Prithvi_EO_V2_300M.pt "https://huggingface.co/ibm-nasa-geospatial/Prithvi-EO-2.0-300M/resolve/main/Prithvi_EO_V2_300M.pt?download=true"
+```
+
+### **5.3 Notebook Paths**
 
 Update local file paths to match your directory structure:
 
 ```python
-# TODO: Update this path to your local data folder
-DATA_DIR = "/path/to/your/data"
+# Change these if you saved the files somewhere else.
+DATA_DIR = "./data/reference_data"
+BACKBONE_CKPT_PATH = "./checkpoints/Prithvi_EO_V2_300M.pt"
 
 ```
 
-### **5.3 Model Configuration Files**
+The notebook injects `BACKBONE_CKPT_PATH` into the model configuration at runtime. For this workshop, keep it pointed at the downloaded checkpoint. You do not need to edit `config_prithvi300_UNet.yaml` for local paths.
 
-If you are using a pretrained model, open the configuration file **config_prithvi300_UNet.yaml** and delete the line containing: **backbone_ckpt_path**.
+During training, the best fine-tuned model is saved as:
 
+```text
+workshop_materials/prithvi_unet_landslide_best.pt
+```
 
 ### **5.4 GPU / Device Configuration**
 
@@ -140,6 +177,3 @@ print(f"Using device: {device}")
 ---
 
 Last updated: May 2026
-
-```
-
